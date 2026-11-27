@@ -232,17 +232,7 @@ h1 em,h2 em,.addons h3 em {font-family:Georgia,'Times New Roman',serif;font-styl
 .reveal {opacity:1;transform:none}
 .reveal.appeared {opacity:1;transform:translateY(0)}
 @keyframes fadeUp {from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-/* Thank you confirmation page */
-.thanks-page {background:#101010;color:#fff;min-height:100dvh;display:grid;place-items:center}
-.thanks-layout {width:min(650px,100%);padding:70px 25px;text-align:center;display:flex;flex-direction:column;align-items:center}
-.thanks-brand img {width:78px;height:78px;margin-bottom:54px}
-.thanks-layout .eyebrow {color:#a8a39d;margin-bottom:24px}
-.thanks-layout h1 {font-size:clamp(74px,12vw,120px);margin:0 0 26px}
-.thanks-layout h1 em {color:#a79f96}
-.thanks-layout>p:not(.eyebrow) {color:#c6c2bd;line-height:1.9;max-width:460px}
-.thanks-layout .thanks-reminder {color:#a29c95!important;font-size:12px;margin:10px 0 32px}
-.booking-return {display:block;background:#fff;color:#111;padding:17px 25px;font-size:10px;font-weight:700;letter-spacing:.14em;margin-bottom:19px}
-.thanks-contact {font-size:12px;text-decoration:underline;color:#c6c2bd}
+/* Booking uses Messenger only. */
 @media(max-width:1170px) {
   .nav {gap:20px}
   .header {gap:24px}
@@ -620,12 +610,12 @@ body.photo-open {overflow:hidden}
   </div></section>
 
   <section class="booking" id="booking" aria-labelledby="booking-title">
-    <div class="booking-header"><p class="eyebrow section-eyebrow">06 / YOUR MOMENT BEGINS HERE</p><h2 id="booking-title">Let's make it <em>beautiful.</em></h2><p>Choose your date, tell us your plans, and save your request. Continue in Messenger to arrange your appointment with Paul.</p></div>
+    <div class="booking-header"><p class="eyebrow section-eyebrow">06 / YOUR MOMENT BEGINS HERE</p><h2 id="booking-title">Let's make it <em>beautiful.</em></h2><p>Choose your date and tell us your plans. Copy your details and send them to Paul through Messenger.</p></div>
     <div class="booking-layout">
       <div class="contact-card"><h3>Get in touch.</h3><p class="contact-lead">Studio & home service inquiries</p><div class="contact-item"><span>CALL / TEXT</span><a href="tel:+639053446569">0905-344-6569 <span aria-hidden="true">↗</span></a></div><div class="contact-item"><span>MESSENGER</span><a href="https://m.me/paul.garcia.936071" target="_blank" rel="noopener noreferrer">Message Paul Garcia <span aria-hidden="true">↗</span></a></div><div class="contact-item"><span>STUDIO ADDRESS</span><p>Vibal Street, Brgy. Bagumbayan, Washington, Legazpi City, Albay, Philippines</p><a class="directions" href="https://www.google.com/maps/search/?api=1&query=Vibal%20Street%20Bagumbayan%20Washington%20Legazpi%20City%20Albay%20Philippines" target="_blank" rel="noopener noreferrer">SEARCH ON GOOGLE MAPS ↗</a></div><p class="contact-reminder">Paul will confirm your schedule and ₱500 down payment in Messenger. Please wait for his confirmation before treating your appointment as reserved.</p></div>
-      <form class="booking-form" id="messenger-booking-form" name="messenger-booking" method="post" action="#booking" aria-describedby="booking-instructions">
+      <form class="booking-form" id="messenger-booking-form" name="messenger-booking" aria-describedby="booking-instructions">
         <div class="form-top"><div><span>BOOK THROUGH MESSENGER</span><h3>Tell us your plans.</h3></div><span class="form-step">01 — YOUR DETAILS</span></div>
-        <p id="booking-instructions" class="booking-instructions">Your details will be saved with a booking reference. Then connect your request in Messenger so Paul can arrange your schedule and deposit.</p>
+        <p id="booking-instructions" class="booking-instructions">Fill out the form, then copy your booking details and send them to Paul in Messenger. No booking is submitted or confirmed by this website.</p>
         <div class="field-row"><label>FULL NAME <span aria-hidden="true">*</span><input name="full-name" placeholder="Your name" autocomplete="name" required maxlength="120"></label><label>PHONE NUMBER <span aria-hidden="true">*</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="09XX XXX XXXX" required maxlength="30"></label></div>
         <div class="field-row"><label>SERVICE <span aria-hidden="true">*</span><select name="service" required><option value="" disabled selected>Select a service</option><option>Regular hair &amp; makeup</option><option>Home service hair &amp; makeup</option><option>Hair only</option><option>Other / inquire</option></select></label><label>NUMBER OF PERSONS <span aria-hidden="true">*</span><select name="party-size" required><option value="" disabled selected>Select number</option><option>1</option><option>2</option><option>3</option><option>4 or more — request a quote</option></select></label></div>
         <div class="field-row"><label>PREFERRED DATE <span aria-hidden="true">*</span><input name="preferred-date" type="date" id="appointment-date" required></label><label>PREFERRED TIME <span aria-hidden="true">*</span><input name="preferred-time" type="time" required></label></div>
@@ -635,28 +625,23 @@ body.photo-open {overflow:hidden}
         <label class="honeypot" aria-hidden="true">Leave this blank<input name="website" tabindex="-1" autocomplete="off"></label>
         <p class="booking-errors" id="booking-errors" role="alert" hidden></p>
         <p class="request-feedback" id="booking-save-status" role="status" aria-live="polite"></p>
-        <button class="submit-button" id="prepare-booking" type="submit" disabled>SAVE REQUEST &amp; CONTINUE <span aria-hidden="true">↗</span></button>
-        <p class="form-disclaimer">Your details are used by Paul to manage your appointment and follow up in Messenger. The ₱500 down payment and Paul’s confirmation are required to reserve your schedule.</p>
+        <button class="submit-button" id="prepare-booking" type="submit">COPY BOOKING DETAILS &amp; CONTINUE <span aria-hidden="true">↗</span></button>
+        <p class="form-disclaimer">Your details stay in this browser until you paste and send them in Messenger. Your appointment is reserved only after Paul confirms availability and receives the ₱500 down payment.</p>
         <noscript><p class="booking-noscript">To book without JavaScript, <a href="https://m.me/paul.garcia.936071" target="_blank" rel="noopener noreferrer">message Paul in Messenger</a> with your name, phone number, service, preferred date and time.</p></noscript>
         <section class="booking-result" id="booking-result" aria-labelledby="booking-result-title" hidden>
-          <p class="request-kicker">02 / YOUR SAVED REQUEST</p>
-          <h4 id="booking-result-title">Your request is recorded.</h4>
-          <div class="request-meta"><span>REQUEST REFERENCE<br><strong id="booking-reference"></strong></span><span class="request-state" id="booking-state">AWAITING CONFIRMATION</span></div>
-          <p id="booking-summary" class="request-help"></p>
-          <p id="booking-next-step" class="request-help"></p>
-          <p id="messenger-copy-hint" class="request-help">Open Paul’s Messenger and press Send to connect your saved request. If the text does not appear, copy and paste this connection message.</p>
-          <label for="booking-message">YOUR MESSENGER CONNECTION MESSAGE</label>
-          <textarea id="booking-message" class="message-preview" readonly rows="3" spellcheck="false" aria-describedby="messenger-copy-hint"></textarea>
-          <div class="message-actions">
-            <a class="messenger-open" id="open-booking-messenger" href="https://m.me/paul.garcia.936071" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">OPEN PAUL’S MESSENGER <span aria-hidden="true">↗</span></a>
-            <button class="message-secondary" id="copy-booking-message" type="button">COPY CONNECTION MESSAGE</button>
-            <button class="message-secondary" id="download-booking-request" type="button">SAVE RECEIPT</button>
-          </div>
-          <p class="request-feedback" id="booking-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
-          <p class="request-help">Keep your booking reference. For changes to a saved request, message Paul rather than submitting the same appointment again.</p>
-          <div class="request-footer"><button type="button" id="check-booking-status">Check booking status</button><button type="button" id="clear-booking-request">Start another request</button><a href="https://www.facebook.com/paul.garcia.936071" target="_blank" rel="noopener noreferrer">Open Paul’s Business Page ↗</a></div>
-        </section>
-      </form>
+           <p class="request-kicker">02 / SEND YOUR REQUEST</p>
+           <h4 id="booking-result-title">Your message is ready.</h4>
+           <p class="request-help">Your request has <strong>not been sent yet</strong>. Open Messenger, paste the copied text into your conversation with Paul, and press Send. Paul will confirm the schedule and down payment directly.</p>
+           <label for="booking-message">YOUR COMPLETE BOOKING DETAILS</label>
+           <textarea id="booking-message" class="message-preview" readonly rows="10" spellcheck="false"></textarea>
+           <div class="message-actions">
+             <a class="messenger-open" id="open-booking-messenger" href="https://m.me/paul.garcia.936071" target="_blank" rel="noopener noreferrer">OPEN PAUL’S MESSENGER <span aria-hidden="true">↗</span></a>
+             <button class="message-secondary" id="copy-booking-message" type="button">COPY BOOKING DETAILS</button>
+             <button class="message-secondary" id="clear-booking-request" type="button">EDIT / NEW REQUEST</button>
+           </div>
+           <p class="request-feedback" id="booking-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+           <p class="request-help">Messenger does not automatically receive the text. Paste it and press Send. This site does not collect payments, check availability, or confirm bookings.</p>
+        </section>      </form>
     </div>
   </section>
 </main>
@@ -952,11 +937,9 @@ const BookingCore = (() => {
 
 /* END_BOOKING_CORE */
 /* START_BOOKING_CLIENT */
-  // Save the request first. A Messenger conversation connects the saved record.
+  // Static, client-side only: no requests, server functions, forms or storage.
   const bookingForm = document.querySelector('#messenger-booking-form');
   if (bookingForm) {
-    // Validate explicitly so an unchanged timed-out save can be recovered even
-    // after its requested time passes. The server rejects past NEW requests.
     bookingForm.noValidate = true;
     const fields = {
       name: bookingForm.elements.namedItem('full-name'),
@@ -968,46 +951,17 @@ const BookingCore = (() => {
       details: bookingForm.elements.namedItem('details'),
       policyAccepted: bookingForm.elements.namedItem('policy-acknowledged')
     };
-    const byId = id => document.querySelector(`#${id}`);
-    const button = byId('prepare-booking');
+    const byId = id => document.getElementById(id);
     const panel = byId('booking-result');
-    const feedback = byId('booking-feedback');
     const errors = byId('booking-errors');
-    const saveStatus = byId('booking-save-status');
+    const status = byId('booking-save-status');
+    const feedback = byId('booking-feedback');
     const messageBox = byId('booking-message');
-    const messengerLink = byId('open-booking-messenger');
-    const stateKey = 'strokes-booking-v1';
-    let attempt = null;
-    let busy = false;
-    let checking = false;
-    let lastCheck = 0;
-
-    function validReceipt(booking) {
-      return typeof booking?.id === 'string' && !!booking.id && typeof booking.reference === 'string' && !!booking.reference
-        && ['pending','confirmed','cancelled'].includes(booking.status)
-        && Number.isFinite(new Date(booking.createdAt).getTime())
-        && (booking.status !== 'confirmed' || (Number.isFinite(new Date(booking.confirmedStart).getTime())
-          && new Date(booking.confirmedEnd).getTime() > new Date(booking.confirmedStart).getTime()));
-    }
-
     function readFields() {
       return Object.fromEntries(Object.entries(fields).map(([name, field]) => [
         name, name === 'policyAccepted' ? field.checked : field.value
       ]));
     }
-
-    function persist() {
-      try { sessionStorage.setItem(stateKey, JSON.stringify(attempt)); } catch (_) { /* The receipt remains on this page. */ }
-    }
-
-    function setBusy(value) {
-      busy = value;
-      bookingForm.setAttribute('aria-busy', String(value));
-      Object.values(fields).forEach(field => { field.disabled = value || !!attempt?.booking; });
-      button.disabled = value || !!attempt?.booking;
-      button.textContent = value ? 'SAVING YOUR REQUEST…' : attempt?.booking ? 'REQUEST RECORDED' : 'SAVE REQUEST & CONTINUE ↗';
-    }
-
     function dateAndAddress() {
       fields.date.min = BookingCore.studioNow().date;
       const home = fields.service.value === 'Home service hair & makeup';
@@ -1017,90 +971,44 @@ const BookingCore = (() => {
         ? 'Your complete home service address, preferred look, and any special requests'
         : 'Your desired glow, preferred hairstyle, add-ons, or special requests';
     }
-
-    async function api(path, body, headers = {}) {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 20000);
-      try {
-        const response = await fetch(path, {
-          method: 'POST', credentials: 'same-origin', cache: 'no-store',
-          headers: {'Content-Type':'application/json', Accept:'application/json', ...headers},
-          body: JSON.stringify(body), signal: controller.signal
-        });
-        const data = await response.json().catch(() => null);
-        if (!response.ok || !data) {
-          const error = new Error(data?.error?.message || 'The booking service is temporarily unavailable.');
-          error.fields = data?.error?.fields;
-          throw error;
-        }
-        return data;
-      } finally { clearTimeout(timer); }
-    }
-
-    function connectionMessage() {
-      return `Connect booking SBPG-${attempt.messengerToken}`;
-    }
-
-    function readableDate(value) {
-      const date = new Date(value);
-      return Number.isFinite(date.getTime())
-        ? new Intl.DateTimeFormat('en-PH', {timeZone:'Asia/Manila', dateStyle:'medium', timeStyle:'short'}).format(date) + ' Philippine Time'
-        : value || 'Not yet confirmed';
-    }
-
-    function receipt() {
-      const b = attempt.booking;
-      const v = attempt.values;
+    function makeMessage(v) {
       return [
-        'STROKES BY PAUL GARCIA — BOOKING REQUEST',
-        `Reference: ${b.reference}`,
-        `Status: ${b.status.toUpperCase()}`,
-        `Recorded: ${readableDate(b.createdAt)}`,
-        '', `Name: ${v.name}`, `Phone: ${v.phone}`, `Service: ${v.service}`,
-        `Number of persons: ${v.partySize}`,
-        `Requested date/time: ${v.date} ${v.time} Philippine Time (UTC+08:00)`,
-        `Address / additional details: ${v.details || 'Not provided.'}`,
-        b.confirmedStart ? `Confirmed start: ${readableDate(b.confirmedStart)}` : '',
-        b.confirmedEnd ? `Confirmed end: ${readableDate(b.confirmedEnd)}` : '',
+        'STROKES BY PAUL GARCIA — BOOKING INQUIRY',
         '',
-        b.status === 'confirmed'
-          ? 'Paul has confirmed this appointment and recorded receipt of the required ₱500 deposit.'
-          : b.status === 'cancelled' ? 'This request has been cancelled. Contact Paul if you need a new appointment.'
-          : 'Your request is saved. Your appointment is reserved only after Paul confirms the schedule and receipt of the ₱500 deposit.',
-        'A recorded request does not mean that a Messenger message has been delivered.',
-        'For changes, message Paul and quote your booking reference.',
-        'Facebook: https://www.facebook.com/paul.garcia.936071',
-        'Phone: 0905-344-6569'
-      ].filter((line, i, lines) => line !== '' || lines[i - 1] !== '').join('\n');
+        'Full name: ' + v.name,
+        'Phone number: ' + v.phone,
+        'Service: ' + v.service,
+        'Number of persons: ' + v.partySize,
+        'Preferred date: ' + v.date,
+        'Preferred time: ' + v.time + ' (Philippine Time, UTC+8)',
+        'Address / additional details: ' + (v.details || 'None'),
+        '',
+        'I have read the booking policy, including the ₱500 down payment and cancellation terms.',
+        'Please confirm availability and payment instructions. I understand this is only an inquiry until Paul confirms the schedule and down payment.'
+      ].join('\n');
     }
-
-    function renderReceipt() {
-      const b = attempt.booking;
-      byId('booking-reference').textContent = b.reference;
-      byId('booking-result-title').textContent = b.status === 'confirmed' ? 'Your appointment is confirmed.'
-        : b.status === 'cancelled' ? 'Your request is cancelled.' : 'Your request is recorded.';
-      byId('booking-state').textContent = b.status === 'confirmed' ? 'CONFIRMED'
-        : b.status === 'cancelled' ? 'CANCELLED' : 'AWAITING CONFIRMATION';
-      byId('booking-next-step').textContent = b.status === 'confirmed'
-        ? `We look forward to seeing you on ${readableDate(b.confirmedStart)}. Message Paul if your plans change.`
-        : b.status === 'cancelled' ? 'This appointment is not reserved. Message Paul to discuss another date.'
-        : 'Continue in Messenger and press Send to connect your request with Paul. Your appointment is reserved after Paul confirms the schedule and receives your ₱500 down payment.';
-      messageBox.value = connectionMessage();
-      messengerLink.href = 'https://m.me/paul.garcia.936071?text=' + encodeURIComponent(connectionMessage());
-      byId('booking-summary').textContent = `${attempt.values.service} · ${attempt.values.partySize} person(s) · ${attempt.values.date} at ${attempt.values.time} Philippine Time`;
-      panel.hidden = false;
-      setBusy(false);
+    async function copyMessage() {
+      let copied = false;
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(messageBox.value);
+          copied = true;
+        }
+      } catch (_) { /* Fall back to selection. */ }
+      if (!copied) {
+        messageBox.focus(); messageBox.select();
+        try { copied = document.execCommand('copy') === true; } catch (_) { /* Manual copy still works. */ }
+      }
+      feedback.textContent = copied
+        ? 'Booking details copied. Tap Open Paul’s Messenger, paste the message and press Send.'
+        : 'Select and copy the booking text above, then open Messenger, paste it and press Send.';
+      return copied;
     }
-
     bookingForm.addEventListener('submit', async event => {
       event.preventDefault();
-      if (busy || attempt?.booking) return;
       Object.values(fields).forEach(field => field.setCustomValidity(''));
       dateAndAddress();
-      let result = BookingCore.validate(readFields());
-      if (attempt && !attempt.booking && attempt.fingerprint === JSON.stringify(result.values)) {
-        result = BookingCore.validate(readFields(), new Date(), {checkFuture:false});
-      }
+      const result = BookingCore.validate(readFields());
       if (!result.ok) {
         for (const [name, message] of Object.entries(result.fieldErrors)) fields[name]?.setCustomValidity(message);
         errors.textContent = Object.values(result.fieldErrors)[0];
@@ -1108,149 +1016,39 @@ const BookingCore = (() => {
         bookingForm.reportValidity();
         return;
       }
-      if (location.protocol === 'file:') {
-        errors.textContent = 'Online booking works on the published website. For now, please use the Messenger link beside this form to contact Paul.';
-        errors.hidden = false;
-        return;
-      }
-      const fingerprint = JSON.stringify(result.values);
-      if (!attempt || attempt.fingerprint !== fingerprint) {
-        if (!globalThis.crypto?.getRandomValues) {
-          errors.textContent = 'Please open this website using HTTPS to submit your booking securely.';
-          errors.hidden = false;
-          return;
-        }
-        const bytes = crypto.getRandomValues(new Uint8Array(32));
-        attempt = {key:Array.from(bytes, b => b.toString(16).padStart(2,'0')).join(''), fingerprint, values:result.values};
-        persist();
-      }
       errors.hidden = true;
-      setBusy(true);
-      saveStatus.textContent = 'Saving your request…';
-      try {
-        const data = await api('/api/bookings', {...attempt.values, website:bookingForm.elements.namedItem('website').value}, {'Idempotency-Key':attempt.key});
-        if (!validReceipt(data.booking)
-          || !/^[A-Za-z0-9_-]{43}$/.test(data.receiptToken || '') || !/^[A-Za-z0-9_-]{43}$/.test(data.messengerToken || '')) {
-          throw new Error('The booking service returned an incomplete receipt.');
-        }
-        attempt.booking = data.booking;
-        attempt.receiptToken = data.receiptToken;
-        attempt.messengerToken = data.messengerToken;
-        persist();
-        renderReceipt();
-        saveStatus.textContent = `Request ${data.booking.reference} has been saved. Continue in Messenger below.`;
-        feedback.textContent = 'Press Open Paul’s Messenger, then Send. If the message is missing, copy the connection message below and paste it in Messenger.';
-        messengerLink.focus();
-        panel.scrollIntoView({block:'nearest', behavior:'smooth'});
-      } catch (error) {
-        setBusy(false);
-        saveStatus.textContent = '';
-        if (error.fields) {
-          for (const [name, message] of Object.entries(error.fields)) fields[name]?.setCustomValidity(message);
-          errors.textContent = error.message;
-          bookingForm.reportValidity();
-        } else {
-          errors.textContent = 'We couldn’t confirm that your request was saved. Please retry with the same details; this will reuse your request safely. You can also message Paul for help.';
-        }
-        errors.hidden = false;
-      }
+      messageBox.value = makeMessage(result.values);
+      panel.hidden = false;
+      status.textContent = 'Your booking message is prepared. Nothing has been sent or saved online.';
+      await copyMessage();
+      panel.scrollIntoView({block:'nearest', behavior:'smooth'});
     });
-
-    async function checkStatus(manual = false) {
-      if (!attempt?.receiptToken || checking || (!manual && Date.now() - lastCheck < 15000)) return;
-      checking = true;
-      lastCheck = Date.now();
-      byId('check-booking-status').disabled = true;
-      if (manual) feedback.textContent = 'Checking your booking status…';
-      try {
-        const data = await api('/api/bookings/status', {receiptToken:attempt.receiptToken});
-        if (!validReceipt(data.booking) || data.booking.id !== attempt.booking.id) throw new Error('Invalid receipt');
-        attempt.booking = {...attempt.booking, ...data.booking};
-        persist();
-        renderReceipt();
-        if (manual) feedback.textContent = data.booking.status === 'pending'
-          ? 'Your request is saved and is awaiting Paul’s confirmation. Continue your conversation in Messenger for availability and deposit details.'
-          : `Status checked: ${data.booking.status}.`;
-      } catch (_) {
-        if (manual) feedback.textContent = 'Your status could not be refreshed. The receipt above shows the last saved status. Please try again or contact Paul.';
-      } finally {
-        checking = false;
-        byId('check-booking-status').disabled = false;
-      }
-    }
-
-    byId('check-booking-status').addEventListener('click', () => checkStatus(true));
-    window.addEventListener('focus', () => checkStatus(false));
-    messengerLink.addEventListener('click', () => {
-      feedback.textContent = 'Press Send in Messenger to connect this request. Opening Messenger alone does not send the message.';
+    byId('copy-booking-message').addEventListener('click', copyMessage);
+    byId('open-booking-messenger').addEventListener('click', () => {
+      feedback.textContent = 'Paste your booking details into Messenger and press Send. Opening Messenger alone does not send your message.';
     });
-
-    byId('copy-booking-message').addEventListener('click', async () => {
-      if (!attempt?.booking) return;
-      let copied = false;
-      try { await navigator.clipboard.writeText(connectionMessage()); copied = true; } catch (_) {
-        messageBox.focus(); messageBox.select();
-        try { copied = document.execCommand('copy') === true; } catch (_) { /* Manual copy remains available. */ }
-      }
-      feedback.textContent = copied ? 'Connection message copied. Paste it into Paul’s Messenger and press Send.'
-        : 'Copy the selected connection message, then paste it into Paul’s Messenger and press Send.';
-    });
-
-    byId('download-booking-request').addEventListener('click', () => {
-      if (!attempt?.booking) return;
-      let url;
-      let link;
-      try {
-        url = URL.createObjectURL(new Blob([receipt()], {type:'text/plain;charset=utf-8'}));
-        link = document.createElement('a');
-        link.href = url;
-        link.download = `booking-${attempt.booking.reference.replace(/[^a-zA-Z0-9-]/g,'')}.txt`;
-        link.hidden = true; document.body.append(link); link.click();
-        feedback.textContent = 'Your receipt download has started. It includes the latest status shown on this page.';
-      } catch (_) { feedback.textContent = 'The download could not start. Please keep your booking reference or take a screenshot.'; }
-      finally { link?.remove(); if (url) setTimeout(() => URL.revokeObjectURL(url), 1000); }
-    });
-
     byId('clear-booking-request').addEventListener('click', () => {
-      if (busy) return;
-      attempt = null;
-      try { sessionStorage.removeItem(stateKey); } catch (_) { /* No stored state. */ }
-      bookingForm.reset();
-      panel.hidden = true; errors.hidden = true; saveStatus.textContent = ''; feedback.textContent = '';
+      panel.hidden = true;
+      status.textContent = '';
+      feedback.textContent = '';
+      errors.hidden = true;
       messageBox.value = '';
-      Object.values(fields).forEach(field => field.setCustomValidity(''));
-      setBusy(false); dateAndAddress(); fields.name.focus();
+      fields.name.focus();
     });
     bookingForm.addEventListener('input', event => {
       if (Object.values(fields).includes(event.target)) {
         Object.values(fields).forEach(field => field.setCustomValidity(''));
         errors.hidden = true;
-      }
-    });
-    bookingForm.addEventListener('change', () => {
-      Object.values(fields).forEach(field => field.setCustomValidity(''));
-      errors.hidden = true; dateAndAddress();
-    });
-    fields.date.addEventListener('focus', dateAndAddress);
-
-    try {
-      const saved = JSON.parse(sessionStorage.getItem(stateKey));
-      if (saved && /^[a-f0-9]{64}$/.test(saved.key || '') && saved.values && saved.fingerprint === JSON.stringify(saved.values)) {
-        attempt = saved;
-        for (const [name, field] of Object.entries(fields)) {
-          if (name === 'policyAccepted') field.checked = saved.values[name] === true;
-          else field.value = String(saved.values[name] || '');
+        if (!panel.hidden) {
+          panel.hidden = true;
+          status.textContent = 'Your details changed. Prepare and copy your updated message again.';
         }
-        if (validReceipt(saved.booking)
-          && /^[A-Za-z0-9_-]{43}$/.test(saved.receiptToken || '') && /^[A-Za-z0-9_-]{43}$/.test(saved.messengerToken || '')) {
-          renderReceipt();
-          feedback.textContent = 'Your saved request is shown below. Use Check booking status for the latest update.';
-        } else { delete attempt.booking; }
       }
-    } catch (_) { attempt = null; }
-    dateAndAddress(); setBusy(false);
+    });
+    bookingForm.addEventListener('change', dateAndAddress);
+    fields.date.addEventListener('focus', dateAndAddress);
+    dateAndAddress();
   }
-
 /* END_BOOKING_CLIENT */
 })();
 
